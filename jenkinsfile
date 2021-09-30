@@ -7,30 +7,29 @@ pipeline {
                 echo 'Hello World'
             }
         }
-        stages {
+        stages 
         stage('Build') {
             steps {
                 echo 'building'
             }
         }
-        stages {
+        stages 
         stage('Deploy') {
             steps {
                 echo 'Deploying'
             }
         }
-        stages {
+        stages 
         stage('Test') {
             steps {
                 echo 'Testing'
             }
         }
-        stages {
+        stages 
         stage('Release') {
             steps {
                 echo 'Realeasing'
             }
         }
-    }
-}
-}
+  }
+  }
