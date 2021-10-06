@@ -1,0 +1,46 @@
+pipeline {
+agent any
+    stages {
+        stage('Clone sources') {
+            steps {
+                git url: 'https://github.com/imkunalll/Manager.git'
+            }
+        }
+
+     
+        stage("Quality gate") {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+        }
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                echo 'building'
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                echo 'Deploying'
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                echo 'Testing'
+            }
+        }
+      
+        stage('Release') {
+            steps {
+                echo 'Realeasing'
+            }
+        }
+  }
+  }
