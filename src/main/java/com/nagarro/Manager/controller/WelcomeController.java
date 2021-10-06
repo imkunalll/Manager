@@ -18,7 +18,17 @@ public class WelcomeController {
 		private FieldOperation operation;
 		
 		@RequestMapping(value="/employees")
-		public ModelAndView test(HttpServletResponse response) throws IOException{
+		public ModelAndView test(/*@RequestParam String user */ HttpServletResponse response) throws IOException{
+		String result =	this.operation.getEmployeesDetails();
+		ModelAndView mv =new ModelAndView();
+		mv.addObject("employee",result);
+		mv.setViewName("welcome");
+		
+		return mv;
+		}
+		
+		@RequestMapping(value="/welcome")
+		public ModelAndView welcome(/* @RequestParam String user , */ HttpServletResponse response) throws IOException{
 		String result =	this.operation.getEmployeesDetails();
 		
 		ModelAndView mv =new ModelAndView();

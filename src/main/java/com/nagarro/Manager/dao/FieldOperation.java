@@ -68,7 +68,7 @@ public class FieldOperation {
 			while ((responseLine = br.readLine()) != null) {
 				response.append(responseLine.trim());
 			}
-			System.out.println(response.toString());
+//			System.out.println(response.toString());
 			return response.toString();
 		} catch (Exception e) {
 			System.err.println(e);
@@ -115,4 +115,46 @@ public class FieldOperation {
 		return "";
 		
 	}
+
+	public String getEmployeeDetails(String id) {
+		try {
+
+			URL url = new URL("http://localhost:8083/employee-api/employee/"+id);
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setRequestMethod("GET");
+
+			connection.setRequestProperty("Content-Type", "application/json; utf-8");
+			connection.setRequestProperty("Accept", "application/json");
+			connection.setDoOutput(true);
+			String result = readResponse(connection);
+			return result;
+		} catch (Exception e) {
+			System.out.println("Error");
+		}
+		return "";		
+	}
+
+	public String updateEmployeeDetails(String employeeCode, String employeeName, String location, String email,
+			String dob) {
+		System.out.println(employeeCode+employeeName+location+email+dob);
+		try {
+			URL url = new URL("http://localhost:8083/employee-api/employees/"+employeeCode);
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setRequestMethod("POST");
+			connection.setRequestProperty("Content-Type", "application/json; utf-8");
+			connection.setRequestProperty("Accept", "application/json");
+			connection.setDoOutput(true);
+			String jsonInputString = "{" + "\"employeeCode\":" + employeeCode + ",\"employeeName\":\"" + employeeName + 
+					"\",\"location\":\""+ location + "\",\"email\":\""+email+"\",\"dob\":\""+dob+"\"" + "}";
+			System.out.println(jsonInputString);
+			connectionOutputStream(jsonInputString, connection);
+			String result = readResponse(connection);
+			return result;
+		} catch (Exception e) {
+			System.out.println("Error");
+		}
+		return "";
+		
+	}
+	
 }

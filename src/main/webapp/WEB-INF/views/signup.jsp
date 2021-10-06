@@ -21,43 +21,37 @@ body
         border-radius: 15px ;  
    
 }   
-h1{  
+h2{  
+background-color:#33cccc;
     text-align: center;  
-    color: #277582;  
+    color: black;  
     padding: 20px;  
 }  
 label{  
+    
+    margin-left:20px;
     color:black;  
     font-size: 17px;  
 }  
-.uemail{  
+.input{  
     width: 200px;  
     height: 30px;  
     border-radius: 3px;  
     padding-left: 8px;  
 }  
-.upass{  
-    width: 200px;  
-    height: 30px;    
-    border-radius: 3px;  
-    padding-left: 8px;  
-}  
-.uname
-{
-    width: 200px;  
-    height: 30px;    
-    border-radius: 3px;  
-    padding-left: 8px;
-}
-.span{  
+
+.span{ 
+background-color:#d9d9d9; 
+margin-left:20px;
     color: black;  
     font-size: 17px;
     }
 #footer {
+color: #277582;
    position:absolute;
    bottom:0;
    width:100%;
-   height:30px;   /* Height of the footer */
+   height:30px;  
 }
 </style>
 <meta charset="ISO-8859-1">
@@ -65,16 +59,16 @@ label{
 </head>
 <body>
 <form action="addUser" method="GET">   
-<h1>Sign Up Form</h1>
+<h2>Sign Up Form</h2>
 
 <label class="label" for="Name"> Enter Name </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input  class="uname" type="text" name="uname" required><br/><br> 
+<input  class="input" type="text" name="uname" required><br/><br> 
 
 <label class="label" for="Email"> Enter Email </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input class="uemail" type="text" name="uemail" required><br/> <br>
+<input class="input" type="text" name="uemail" required><br/> <br>
 
 <label class="label" for="Pswd"> Create Password </label>
-<input  class="upass" type="password" name="upass" required ><br/><br>
+<input  class="input" type="password" name="upass" required ><br/><br>
 
 <button class="span" type="submit">Register</button>  
 </form> 
