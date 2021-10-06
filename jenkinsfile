@@ -1,12 +1,4 @@
-node {
-  stage('SCM') {
-    git 'https://github.com/imkunalll/Manager.git'
-  }
-  stage('SonarQube analysis') {
-    def scannerHome = tool 'SonarScanner 4.0';
-    withSonarQubeEnv('Manager') 
-  }
-}
+
 pipeline {
     agent any
     stages {
