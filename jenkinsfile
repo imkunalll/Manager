@@ -1,31 +1,22 @@
 pipeline {
     agent any
-
     stages {
-        
-        
-        stage('Build') {
+        stage('Clone sources') {
             steps {
-                echo 'building'
+                git url: 'https://github.com/imkunalll/Manager.git'
             }
         }
-        
-        stage('Deploy') {
+        stage('SonarQube analysis') {
             steps {
-                echo 'Deploying'
+                withSonarQubeEnv('SonarQube') {
+                   bat "mvn sonar:sonar -Dsonar.projectKey=Iknons8_ -Dsonar.host.url=http://localhost:9000 -Dsonar.login=3de26341ef104b2375c4d93722997204a93308ab"
+                }
             }
         }
-        
-        stage('Test') {
+        stage("Quality gate") {
             steps {
-                echo 'Testing'
+                waitForQualityGate abortPipeline: true
             }
         }
-      
-        stage('Release') {
-            steps {
-                echo 'Realeasing'
-            }
-        }
-  }
-  }
+    }
+    }
