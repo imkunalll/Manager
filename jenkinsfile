@@ -2,33 +2,29 @@ pipeline {
     agent any
 
     stages {
-        stage('Requirement') {
+        
+        
+        stage('Build') {
             steps {
-                echo 'Requirement gathering'
+                echo 'building'
             }
         }
         
-        stage('Planning') {
+        stage('Deploy') {
             steps {
-                echo 'Planning'
+                echo 'Deploying'
             }
         }
         
-        stage('Designing') {
+        stage('Test') {
             steps {
-                echo 'Designing'
-            }
-        }
-        
-        stage('Developing') {
-            steps {
-                echo 'Developing'
+                echo 'Testing'
             }
         }
       
-        stage('Testing') {
+        stage('Release') {
             steps {
-                echo 'Testing'
+                echo 'Realeasing'
             }
         }
   }
