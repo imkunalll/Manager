@@ -18,7 +18,6 @@ pipeline {
                 waitForQualityGate abortPipeline: true
             }
         }
-        stages {
         stage('Requirement') {
             steps {
                 echo 'Requirement gathering'
